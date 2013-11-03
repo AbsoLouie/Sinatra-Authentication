@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  #TODO : Use bcrypt to store hashed passwords and authenticate users
+  validates :email, uniqueness: true
+  validates :email, format: { with: /\w{2,}[@]\w{2,}[.]\w{2,}/, message: "Improper Email Address" }
 end
